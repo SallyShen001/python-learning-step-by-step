@@ -1,0 +1,16 @@
+x=5
+y=7
+z=x=y
+print("{0:d}".format(z))
+"""
+- `{0}`: This specifies the index of the value that will be inserted into the placeholder. 
+In this case, it refers to the first (and only) value that will be passed to the `format()` method.
+- `:d`: This is a format specifier that indicates that the value should be formatted as a decimal integer.
+So, `{0:d}` is telling the `format()` method to take the first value passed to it and format it as a decimal integer. 
+In this case, the value of `z` is passed to the `format()` method, and it will be printed as a decimal integer.
+花括号（{}）是一个占位符，表示这里将要传入print语句一个具体的值，这里就是变量z的值。
+0指向format()方法中的第一个参数，在这里，只包含一个参数z，所以0就指向这个值；相反，如果有多个参数，0就确
+定地表示传入第一个参数
+冒号（:）用来分隔传入的值和它的格式。
+d表示这个值应该被格式化为整数，没有小数部分。在下一节中，你将会学习如何设定小数位数来显示浮点数
+"""
