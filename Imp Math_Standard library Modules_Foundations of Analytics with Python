@@ -1,0 +1,5 @@
+#Import Math Modules
+from math import exp, log, sqrt
+print("Output #11: {0:.4f}".format(exp(3)))  #e^3 result:20.0855
+print("Output #12: {0:.2f}".format(log(4)))  # log 10 4 result:1.39
+print("Output #13: {0:.1f}".format(sqrt(81))) 
