@@ -1,0 +1,12 @@
+"""Positive Integers Sum
+
+Write a Python program that calculates the sum of all positive integers, from a list, less than or equal 
+to a given integer n. The program should take n as input and print the sum."""
+
+def inter_sum(lst):
+  totalsum = 0
+  for i in lst:
+      totalsum += i
+  return totalsum
+  
+  
