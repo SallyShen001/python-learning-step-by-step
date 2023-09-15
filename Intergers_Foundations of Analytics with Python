@@ -1,5 +1,5 @@
 # INTERGERS#
-# Case 1
+# Case 1   Page 7&10
 x=5
 y=7
 z=x=y
@@ -16,3 +16,6 @@ In this case, the value of `z` is passed to the `format()` method, and it will b
 冒号（:）用来分隔传入的值和它的格式。
 d表示这个值应该被格式化为整数，没有小数部分。在下一节中，你将会学习如何设定小数位数来显示浮点数
 """
+# Case 2
+print("{0}".format(int(8.3)/int(2.5)))
+#6 演示了将数值转换成整数并进行除法运算的方法。数值通过内置的int函数转换成整数，所以算式变成了8 除以 2，结果为 4.0。
