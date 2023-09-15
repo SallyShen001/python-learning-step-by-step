@@ -1,0 +1,46 @@
+"""
+-These two concepts are easily to be confused when calling method/function with parameter. 
+Either is talking about a way how to pass objects to functions/method.
+
+-Pass-by-value: When you call the funtion, a new reference is created that refers to the object passed in. 
+Once getting reassigned, as a reference to an object with new value in the function is over written, 
+it is seperated from the original variable and will not affect the original object outside the function, 
+because both value and memory id are revised inside.
+
+-Pass-by-reference: Reference, as a place-holder, receives the value and memory id passed in. 
+Once getting reassigned, the indicator points to the original memory id and revises the value at the same time. 
+Therefore, any changes in the function will affect the original object that passed in.
+
+"""
+def test1(a)
+# Calling function test1 using .append(), pass outvar to parameter a
+  print(f"Before changing,a value and id:{a}, {id(a)}")  #before changing
+#Before changing, a value and id:['1', '2', '3', '4'], 2366784843456
+  a.append("5")
+  print(f"After changing, a value and id: {a},{id(a)}\n")  #after changing, showing a value & id
+#a value and id: ['1', '2', '3', '4', '5'],2366784843456
+
+def test2(a)
+# Calling function test2,pass outvar to parameter b
+print(f"Before changing, b value and id:{b},{id(b)}\n")
+# b value and id:['1', '2', '3', '4', '5'],2366784843456
+
+b=[0,1]
+print(f"After changing, b value and id: {b},{id(b)}\n")
+# b value and id: [0, 1],2366784578496
+
+
+outvar = ['1', '2', '3', '4']
+print(f"outter_var1 value and id: {outter_var1}, {id(outter_var1)}\n") 
+#before calling function, showing outvar value and id
+#outvar value and id: ['1', '2', '3', '4'], 2366784843456
+
+test1(outvar)
+print(f"outter_var1 value and id:{outter_var1}, {id(outter_var1)}\n")
+#outvar changes because a.append point to the outvar id
+#outter_var1 value and id:['1', '2', '3', '4', '5'], 2366784843456
+
+test2(outvar)
+print(f"outter_val1 value and id is:{outter_var1},{id(outter_var1)}")
+#outvar value and id is:['1', '2', '3', '4', '5'],2366784843456
+#b changes, while outvar is not
