@@ -9,3 +9,16 @@ print(reversed_sentence)
 #Method 2
 def reverseWords(self, s: str) -> str:
   return " ".join(s.split()[::-1])
+
+#Method 3
+def reverse_word(s, start, end):
+    while start < end:
+        s[start], s[end] = s[end], s[start]
+        start = start + 1
+        end -= 1
+ 
+ 
+s = "i like this program very much"
+ 
+# Convert string to list to use it as a char array
+s = list(s)
