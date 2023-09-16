@@ -1,0 +1,18 @@
+# create class
+class Dog:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+    
+    def sit(self):
+        print(f"{self.name} is now sitting.")
+    
+    def roll_over(self):
+        print(f"{self.name} rolled over!")
+        
+
+mydog = Dog('Willie',6)
+print(f"My dog's name is {mydog.name}")    # My dog's name is Willie
+print(f"My dog is {mydog.age} years old")  # My dog is 6 years old
+mydog.sit()                                # Willie is now sitting.
+mydog.roll_over()                          # Willie rolled over!
