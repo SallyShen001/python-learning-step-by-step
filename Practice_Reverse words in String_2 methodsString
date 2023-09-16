@@ -16,8 +16,33 @@ def reverse_word(s, start, end):
         s[start], s[end] = s[end], s[start]
         start = start + 1
         end -= 1
- 
+
 s = "i like this program very much"
+s = list(s)      # Convert string to list to use it as a char array
+start = 0
+while True:
+"""
+    # We use a try catch block because for
+    # the last word the list.index() function
+    # returns a ValueError as it cannot find
+    # a space in the list
+
+"""
+
+    try:          # Find the next space
+        end = s.index(' ', start)
+        reverse_word(s, start, end - 1)      # Call reverse_word function to reverse each word
+        start = end + 1          # Update start variable
  
-# Convert string to list to use it as a char array
-s = list(s)
+    except ValueError:
+        reverse_word(s, start, len(s) - 1)           # Reverse the last word
+        break
+ 
+
+s.reverse()  # Reverse the entire list
+ 
+# Convert the list back to
+# string using string.join() function
+s = "".join(s)
+ 
+print(s)
