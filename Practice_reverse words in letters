@@ -11,17 +11,18 @@ Output: "i ekil siht margorp yrev hcum"
 """
 
 def reverseWords(s):
-    words = []
-    word = ""
+    word=" "
     for char in s:
         if char != " ":
             word += char
         else:
-            words.append(word[::-1])
-            word = ""
-    words.append(word[::-1])
-    reversed_sentence = " ".join(words[::-1])
-    return reversed_sentence
+            print(word[::-1], end="")
+            word = " "
+    print(word[::-1])
+    return 
+
+s="i like this program very much"
+reverseWords(s)
       
       
     
