@@ -24,3 +24,16 @@ def buildprofile(first,last,**user_info):  #**user_info 创建空字典
     return user_info
 user_profile = buildprofile('albert','ele',location = 'BU',field = 'IS')
 print(user_profile)        #{'location': 'BU', 'field': 'IS', 'first name': 'albert', 'last_name': 'ele'}
+
+
+def display_contact(**kwargs):
+    print('contact info:')
+    for field,value in kwargs.items():
+        print(f"{field.capitalize()}:{value}")
+display_contact(name='Alice',email='alice@example.com',phone='123')
+'''
+contact info:
+Name:Alice
+Email:alice@example.com
+Phone:123
+'''
