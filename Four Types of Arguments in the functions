@@ -1,0 +1,28 @@
+# 4 types of arguments in the function
+#required argement, keywords arguments, defalut arguments, variable-length arguments
+
+#required arg - pass to the function in correct order
+def printme(str):
+  print (str)
+  return
+printme( )     #TypeError: printme() missing 1 required positional argument: 'str'
+
+
+
+#keyword arg - the caller identifies the arguments by the parameter name
+def printinfo( name, age ): 
+    """Test Function"""
+    print ("Name: ", name) 
+    print ("Age ", age)
+    return                          #Name:  miki
+printinfo( age=50, name="miki" )    #Age  50
+
+#default arg - assumes a default value if a value is not provided in the function
+def power(base, exponent=2):
+    return base ** exponent
+
+result1 = power(3)   # without identifying the 2nd parameter, the default value will be regarded as 2, 3^2
+print(result1)
+result2 = power(3, 4)  # 3^4
+print(result2)
+
