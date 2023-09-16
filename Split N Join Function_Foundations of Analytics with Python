@@ -1,0 +1,40 @@
+#split函数来将一个字符串拆分成一个子字符串列表，列表中的子字符串正好可以构成原字符串
+string1 = "My deliverable is due in May" 
+string1_list1 = string1.split() 
+string1_list2 = string1.split(" ",2) 
+
+print("Output #21: {0}".format(string1_list1)) 
+##Output #21: ['My', 'deliverable', 'is', 'due', 'in', 'May']
+
+print("Output #22: FIRST PIECE:{0} SECOND PIECE:{1} THIRD PIECE:{2}"
+.format(string1_list2[0], string1_list2[1], string1_list2[2])) 
+##Output #22: FIRST PIECE:My SECOND PIECE:deliverable THIRD PIECE:is due in May
+
+string2 = "Your,deliverable,is,due,in,June" 
+string2_list = string2.split(',') 
+print("Output #23: {0}".format(string2_list)) 
+##Output #23: ['Your', 'deliverable', 'is', 'due', 'in', 'June']
+
+print("Output #24: {0} {1} {2}".format(string2_list[1], string2_list[5],
+string2_list[-1]))
+##Output #24: deliverable June June
+
+text = 'geek for geeks'
+print(string1_list1.split())  #split at space 
+text = 'geek,for,geeks' 
+print(text.split(','))        #split at ,
+text = 'geek:for:geeks'
+print(text.split(':'))        #split at :
+text = 'geetfotgeeks'
+print(text.split('t'))        #split at t
+
+word ='geek,for,geeks,pawan'
+print(word.split(',',0)       #maxsplit 0 ['geek for geeks pawan']
+print(word.split（',',4)      #maxsplit 4 ['geek','for','geeks','pawan']
+print(word.split(',',1)       #maxsplit 1 ['geek','for geeks pawan']
+
+
+print("Output #25: {0}".format(','.join(string2_list)))
+#附加参数为一个逗号，位于圆括号中。所以join函数将子字符串组合成一个字符串，子字符串之间为逗号。
+#因为列表中有 6 个子字符串，所以子字符串被组合成一个字符串，子字符串之间有 5 个逗号。
+#新生成的字符串是Your,deliverable,is,due,in,June
