@@ -1,0 +1,29 @@
+"""
+Given a String s, reverse the individual words (don't change the order of words). Words are separated by space.
+Do not use methods from string class (str), use loops, lists, operators etc.
+
+Your Task: Complete the function reverseWords() which takes string s as input and returns a string containing the words 
+in reversed order. Each word in the returning string should also be separated by space
+
+Example:
+Input: s = "i like this program very much"
+Output: "i ekil siht margorp yrev hcum"
+"""
+
+def reverseWords(s):
+    words = []
+    word = ""
+    for char in s:
+        if char != " ":
+            word += char
+        else:
+            words.append(word[::-1])
+            word = ""
+    words.append(word[::-1])
+    reversed_sentence = " ".join(words[::-1])
+    return reversed_sentence
+      
+      
+    
+  
+  
