@@ -1,0 +1,15 @@
+cars=["a","b","z","e"]
+cars.sort()                         #  sort permanently
+print(f"By using sort{cars}")       #By using sort['a', 'b', 'e', 'z']
+cars.sort(reverse=True)             #  reverse the sort
+print(f"Reverse the cars:{cars}")   #Reverse the cars:['z', 'e', 'b', 'a']
+cars.reverse()
+print(f"Reverse the cars again:{cars}")  #Reverse the cars again:['a', 'b', 'e', 'z']
+
+
+
+cars=["b","f","g","e"]
+print(f"\nHere's the original list:{cars}")     # ['b', 'f', 'g', 'e']
+print(f"Here's the sorted list:")
+print(sorted(cars))                             # sort temporary ['b', 'e', 'f', 'g']
+print(f"Here's the original list again:{cars}") # ['b', 'f', 'g', 'e']
