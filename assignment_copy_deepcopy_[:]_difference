@@ -12,3 +12,24 @@ print( 'a = ', a,id(a))     #a =  [1, 2, 3, 4, ['a', 'b', 'c'], 5] 2076628652160
 print( 'b = ', b,id(b))     #b =  [1, 2, 3, 4, ['a', 'b', 'c'], 5] 2076628652160
 print( 'c = ', c,id(c))     #浅拷贝，原列表长度不变，只修改a[4].append('c')  c =  [1, 2, 3, 4, ['a', 'b', 'c']] 2076628650432
 print( 'd = ', d,id(d))     #深拷贝，复制原变量修改前的元素，不受原变量的影响 d =  [1, 2, 3, 4, ['a', 'b']] 2076628358720
+
+#difference between copy list by using [:] & assignment
+
+#first trial  using [:]
+original_list = ["app","ban","cherry","pulm"]
+copy_list1 = original_list[:]
+
+original_list.append("nuts")
+print(original_list)         #['app', 'ban', 'cherry', 'pulm', 'nuts']
+print(copy_list1)            #['app', 'ban', 'cherry', 'pulm']    [:] 原列表改变，不影响copy_list
+
+
+
+#second trial  assignement
+original_list2 = ["app","ban","cherry","pulm"]
+copy_list2 = original_list2
+original_list2.append("orange")
+copy_list2.append("avocado")
+print(original_list2)        #['app', 'ban', 'cherry', 'pulm', 'orange', 'avocado']
+print(copy_list2)            #['app', 'ban', 'cherry', 'pulm', 'orange', 'avocado']
+
