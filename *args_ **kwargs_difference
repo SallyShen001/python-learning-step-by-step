@@ -1,0 +1,26 @@
+def makepizza(*toppings):   #*toppings 创建空元组
+    print(toppings)
+
+makepizza("pepperoni")      #('pepperoni',)
+makepizza("mushrooms","extra cheese")   #('mushrooms', 'extra cheese')
+
+
+def make_pizza(*toppings):
+    print("\nMaking a pizza with the following toppings:")  #Making a pizza with the following toppings:
+    for topping in toppings:                                #your topping a
+        print("your topping {0}".format(topping))           #your topping b
+make_pizza("a","b","c","d")                                 #your topping c
+                                                            #your topping d
+
+
+
+
+#**kwargs (Keyword Arguments): 创建空字典
+#Accept any number of keyword arguments, which are collected into a dictionary
+    
+def buildprofile(first,last,**user_info):  #**user_info 创建空字典
+    user_info['first name'] = first
+    user_info['last_name'] = last
+    return user_info
+user_profile = buildprofile('albert','ele',location = 'BU',field = 'IS')
+print(user_profile)        #{'location': 'BU', 'field': 'IS', 'first name': 'albert', 'last_name': 'ele'}
