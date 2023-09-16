@@ -1,0 +1,15 @@
+totalprice = 100
+country = “AU”
+if country == “US”:
+	if totalprice <= 50:
+		print(“Shipping Cost is $50”)
+	elif totalprice <= 100:
+		print(“Shipping Cost is $25”)
+	elif totalprice <= 150:
+		print(“Shipping Costs $5”)
+	else: print(“No Shipping Cost")
+elif country == “AU”:
+	 if totalprice <= 50:
+		print(“Shipping Cost is $100”)
+	else: 
+		print (“No Shipping Cost")
