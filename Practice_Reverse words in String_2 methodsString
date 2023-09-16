@@ -17,7 +17,6 @@ def reverse_word(s, start, end):
         start = start + 1
         end -= 1
  
- 
 s = "i like this program very much"
  
 # Convert string to list to use it as a char array
