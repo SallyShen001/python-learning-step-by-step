@@ -1,0 +1,20 @@
+squares = [value*2 for value in range(1,5)]
+print(squares)
+
+print([number for number in range(1,21)])
+
+#想要5以内的单数，和5以内双数组成的所有二元组，然后把这些元组放在一个列表里。
+#expression 1
+lst=[]
+for i in range(1,6):
+    if i%2 == 0:
+        continue
+    for j in range(1,6):
+        if j%2 == 0:
+            lst.append((i,j))
+
+print(lst)
+
+#expression 2
+
+print([(i,j) for i in range(1,6) if i % 2 for j in range(1,6) if not j % 2])
