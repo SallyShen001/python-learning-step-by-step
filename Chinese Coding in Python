@@ -1,0 +1,22 @@
+'''
+Python中默认的编码格式是 ASCII 格式，在没修改编码格式时无法正确打印汉字，所以在读取中文时会报错
+'''
+
+# coding=utf-8
+# -*- coding: UTF-8 -*- 
+# we use encoding in open() 
+with open (file,encoding='UTF-8') as file_obj
+open(file_name, 'r', encoding='UTF-8')
+
+'''
+Pycharm 设置步骤：
+
+进入 file > Settings，在输入框搜索 encoding。
+找到 Editor > File encodings，将 IDE Encoding 和 Project Encoding 设置为utf-8。
+or pycharm右下角就可以切换编码
+
+https://www.runoob.com/python/python-chinese-encoding.html
+
+在Python 3中，所有的字符串都是Unicode字符串，
+Python 3还引入了一种新语法，用于表示大致相当于老式字符串的字节对象。你将看到，在处理Unicode编码方面，这种对象依然扮演着重要的角色
+'''
