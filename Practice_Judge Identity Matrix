@@ -1,0 +1,12 @@
+m=[[1,0,0,0],
+   [0,1,1,0],
+   [0,0,1,0],
+   [0,0,0,1]]
+isIdentity = True
+for i in range(4):
+  for j in range(4):
+    if i == j and m[i][j] !=1:
+      isidentity = False
+    elif i!=j and m[i][j] !=0:
+      isIdentity = False
+print(isIdentity)
