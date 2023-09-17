@@ -1,0 +1,44 @@
+'''
+A magic square is a square matrix (i.e., the number of rows is equal to the number of columns) 
+in which the sum of the values in each row, each column, and both main diagonals are the same.
+'''
+
+def is_magic_square(matrix):
+    num_rows = len(matrix)
+    num_cols = len(matrix[0])
+
+    if num_rows != num_cols: # number of rows not equal to number of columns, return false
+        return False
+    
+    row_sum = sum(matrix[0])
+    for i in range(num_rows):
+        if sum(matrix[i]) != row_sum:  # sum of each row not equal, return false
+            return False
+
+    for j in range(num_cols):
+        colum_sum = sum(matrix[i][j] for i in range(num_rows))   # 不能写成  if sum(matrix[i][j]) != row_sum, TypeError: 'int' object is not iterable
+        if colum_sum != row_sum:  # sum of each column not equal, return false
+            return False
+'''
+for j in range(num_cols):      #send method to calculate the sum of each column
+  for i in range(num_rows):
+    sum += matrix[i][j]
+    if sum != row_sum:
+     ....
+'''       
+    sum_1st_diagonal = 0
+    for i in range(num_rows):
+        fist_dia = sum(matrix[i][j] for j in range(num_rows) if i==j)
+        sum_1st_diagonal += fist_dia  # calculate sum of main diagonal 
+    if sum_1st_diagonal != row_sum:   # sum of main diagonal not equal to sum of row
+        return False                  # return false 
+    
+    sum_2st_diagonal = 0
+    for i in range(num_rows):
+        second_dia = sum(matrix[i][j] for j in range(num_cols) 
+                         if j == num_cols-i-1)
+        sum_2st_diagonal += second_dia  # calculate sum of 2nd diagonal 
+    if sum_2st_diagonal != row_sum:     # sum of 2nd diagonal not equal to sum of row
+        return False                    # return false
+
+    return True                         # pass when it is a magic matrix
