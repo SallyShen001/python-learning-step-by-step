@@ -1,0 +1,4 @@
+file = 'D:/Program Files/Sublime Text/car.txt'
+with open(file,encoding='UTF-8') as file_obj:
+    content = file_obj.read()
+print(content)
