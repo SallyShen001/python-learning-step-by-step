@@ -1,0 +1,29 @@
+'''
+-Write a Python program that reads the contents of a text file called "input.txt," 
+removes duplicate lines, and writes the unique lines to a new file called "output.txt." 
+Consider lines to be duplicates if they have the same content, regardless of leading or trailing whitespace. (use context manager)
+
+-For example, if "input.txt" contains: 'Hello, World! Python is fun. Python is fun. Python is fun.'
+After running the program, "output.txt" should contain:'Hello, World! Python is fun.'
+
+-Handle errors properly.
+'''
+infile = 'D:///input.txt' # define the routine of input file
+try:
+    file = open(infile,'r')
+    lines = file.readlines()                              # read lines of input file                                                   
+except FileNotFoundError():                               # handle the Error if any
+    print("File doex not exist.")
+else:
+    remove_whitespace = [line.strip() for line in lines]  # remove the whitespace of each line
+    print(remove_whitespace)
+    origin_list = list(set(remove_whitespace))            # assign the values to the new list, remove the duplications but out-of-order
+    origin_list.sort(key = remove_whitespace.index)       # sort the new list according to the original order 
+    print(origin_list)
+    cojoin_words = ' '.join(origin_list)                  # join the words by spacebar to create the sentense
+    print(cojoin_words)
+    file.close()                                          # close file
+
+    outfile = open ("output.txt",'w')                     # create the output file
+    outfile.write(cojoin_words)                           # write the sentenses
+    outfile.close()                                       # close output file
