@@ -42,3 +42,45 @@ for j in range(num_cols):      #send method to calculate the sum of each column
         return False                    # return false
 
     return True                         # pass when it is a magic matrix
+
+def input_matrix(): 
+    while True:
+        try:
+            num_rows = int(input("Enter the number of rows: "))
+            num_cols = int(input("Enter the number of columns: "))
+        
+            if num_rows != num_cols:
+                print(f"Number of rows and columns are not equal.")
+                print(f"Enter the number of rows and colums again")
+                continue  # loop the input while enter incorrectly
+            else:
+                matrix = []           # creat a blank matrix
+                print("Enter the matrix elements row by row:")
+#TODO Accept elements of the matrix and store them properly in the 'matrix'
+                for i in range(num_rows):
+                    row =[]           # creat a blank row
+                    for j in range(num_cols):
+                        element = int(input(f"Enter the element at\
+ position {i+1}{j+1}: "))
+                        row.append(element)  # embed each element into the row
+                    matrix.append(row)  # embed each row into the matrix
+            return matrix
+        except ValueError:     # handle input valueerror and return None
+            print("Invalid input. Please enter valid numeric values.")
+            return None
+        
+
+def main():
+    print("Magic Square Validator")
+    matrix = input_matrix()       # call the input_matrix function
+    
+    if matrix is not None: # if input is right, call the function is_magic_square
+        if is_magic_square(matrix):  
+            print("The entered matrix is a magic square!")
+        else:
+            print("The entered matrix is not a magic square.")
+
+if __name__ == "__main__":
+    main()
+
+
