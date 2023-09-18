@@ -1,0 +1,15 @@
+def sum_odd_and_even(lst):
+		odd, even = 0, 0
+		for i in lst:
+				if i%2: 
+						odd += i
+				else:
+						even += i
+		return [even, odd]
+
+'''
+- can not write if i%2 == 0 or if i%2 =0
+-When `i % 2` is evaluated, 
+-If the remainder is 0, it means that `i` is an even number, and the expression evaluates to `False`. 
+-If the remainder is not 0, it means that `i` is an odd number, and the expression evaluates to `True`.
+'''
