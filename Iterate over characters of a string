@@ -1,0 +1,59 @@
+string = 'abcde'
+for i in string:
+    print(i, end =",")   #a,b,c,d,e,
+print()
+
+string2= 'fghij'
+for j in range(len(string2)):
+    print(string2[j], end=",")  #f,g,h,i,j,
+print()
+
+#Time complexity: O(n), where n is the length of the string.
+#Auxiliary space: O(1)
+
+string3 = 'klmnopq'
+for i,v in enumerate(string3):
+    print(i,v,end=',')    #0 k,1 l,2 m,3 n,4 o,5 p,6 q,
+print()
+
+string4 = '12345'
+for i in string4[::-1]:
+    print(i,end="")   #54321
+print()
+    
+string5 = '56789'
+for k in reversed(range(0,len(string5))):
+    print(k,end="")
+print()             #43210 数字输出的是数字范围，不再是原数字字符
+
+string6 = 'hello'
+a = len(string6)
+for l in reversed(range(0,a)): ### pay attention to the expression 
+    print(string6[l],end="")   #olleh
+
+string_name = "geeks" 
+def h(x):
+    print(x,end="")
+k = map(h, string_name)   
+#syntax: map(fun, iter)
+#Returns a list of the results after applying the given function  
+#to each item of a given iterable (list, tuple etc.)
+for _ in k:
+    pass
+'''
+The expression `_` in `k` is a common convention in Python to indicate that 
+the loop variable `_` is not going to be used within the loop body. 
+
+In this case, `_` is used as a placeholder for each element in the iterable `k`
+It is a way to indicate that the loop is intended to iterate over the elements 
+of `k`, but the loop variable itself is not needed or used.
+
+This convention is often used when the loop is only interested in the 
+iteration count or when the loop is performing some side effect, such as 
+updating a variable or calling a function, without needing to use the actual 
+loop variable.
+
+Using `_` as the loop variable is a way to make the code more readable and to 
+indicate to other developers that the loop variable is intentionally not used 
+in the loop body.
+'''
