@@ -1,15 +1,21 @@
 def sum_odd_and_even(lst):
-		odd, even = 0, 0
-		for i in lst:
-				if i%2: 
-						odd += i
-				else:
-						even += i
+	odd, even = 0, 0
+	for i in lst:
+		if i%2:  # or can write i%2 == 1
+			odd += i
+		else:
+			even += i
 		return [even, odd]
 
 '''
-- can not write if i%2 == 0 or if i%2 =0
--When `i % 2` is evaluated, 
+- can not write if i%2 =0
+-In Python, integers can be evaluated as boolean values. 
+Any non-zero integer is considered `True`, and 0 is considered `False`. 
+-If i % 2: checks whether retrurn 'True'(==1/remainder non-zero), which means `i` is an odd numbe
 -If the remainder is 0, it means that `i` is an even number, and the expression evaluates to `False`. 
--If the remainder is not 0, it means that `i` is an odd number, and the expression evaluates to `True`.
+
+# i%2 return True(1) 有余数 odd
+return False (0)没有余数  even. can also write i%2 == 0 (EVEN number)
+If i%2 == 1 (余数1，有数值，return True (逻辑值), odd number)
+If i%2 == 0 （余数0，无返回值，return False (逻辑值), even number）
 '''
