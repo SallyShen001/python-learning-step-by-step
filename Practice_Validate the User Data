@@ -1,0 +1,75 @@
+'''
+You are tasked with implementing an advanced user registration system. The registration form now requires the following information from the user: name, email address, age, and a password. Create a Python program with the following advanced requirements:
+Define a custom exception class called InvalidDataException. This exception should be raised when any of the following conditions are not met during data validation:
+
+The name must not be empty.
+The email address must contain an "@" symbol and a valid domain (e.g., gmail.com, yahoo.com).
+The age must be between 18 and 100 (inclusive).
+The password must have at least 8 characters and contain a combination of letters (both uppercase and lowercase), digits, and special characters.
+
+Create a function validate_user_data(name, email, age, password) that takes four parameters (name as a string, email as a string, age as an integer, and password as a string) and performs the following validation checks:
+
+If any of the validation conditions fail, raise an InvalidDataException with an appropriate error message.
+If all conditions pass, return a dictionary with the validated data, where the keys are "name," "email," "age," and "password."
+
+In your program, use a try and except block to handle the InvalidDataException and display the error message if it occurs. Otherwise, print the validated user data.
+'''
+class InvalidDataException(Exception):
+    pass
+
+
+def validate_user_data(name:str, email:str, age:int, password:str)->dict:
+    
+    '''
+docstring
+    This function is to validate the user data
+    Parameters:
+•	name(str):The name must not be empty.
+•	email(str):The email address must contain an "@" symbol and a valid domain 
+(e.g., gmail.com, yahoo.com).
+•	age(int):The age must be between 18 and 100 (inclusive).
+•	password(str):The password must have at least 8 characters 
+and contain a combination of letters (both uppercase and lowercase), 
+digits, and special characters.
+    
+    Return:
+    A dictionary with the validated data(name,email,age,password)
+
+    '''
+    user_data={}
+    SpecialSym =['$', '@', '#', '%']
+    try:
+
+        if name == False:
+            raise InvalidDataException("Name is empty")
+        if "@" not in email or ".com" not in email:
+            raise InvalidDataException("Email is invalid")
+        if age < 18 or age > 100:
+            raise InvalidDataException("Not in the valid age")
+        if len(password)<8:
+            raise InvalidDataException("The length of password has to be \
+at least 8 characters")
+        if not any(char.isdigit() for char in password):
+            raise InvalidDataException("Password should contain at least one \
+number")
+        if not any(char.isupper() for char in password):
+            raise InvalidDataException("Password should contain at least one \
+uppercase letter")
+        if not any(char.islower() for char in password):
+            raise InvalidDataException("Password should contain at least one \
+lowercase letter") 
+        if not any(char in SpecialSym for char in password):
+            raise InvalidDataException("Password should contain at least one \
+special charater")
+
+    except InvalidDataException as e:
+        print("Error:",e)
+        
+    else:
+        user_data = dict(Name = name, Email = email, Age = age, \
+Password = password)
+        print("Validated User Data:")
+        print(user_data)
+    return(user_data)
+        
+user_data = validate_user_data("ff", "johndoe@gmail.com", 88, "P@ssw0rd")
