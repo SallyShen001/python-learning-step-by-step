@@ -1,0 +1,16 @@
+# 3 methods of adding key-value pairs to the dictionary.
+# You can also add multiple key-value pairs at once by passing a dictionary 
+# or an iterable of key-value pairs to the `update()` method 
+# or the `dict()` constructor.
+
+#1. Using square bracket notation:
+my_dict = {}
+my_dict['key1'] = 'value1'
+my_dict['key2'] = 'value2'
+
+#2. Using the `update()` method:
+my_dict = {}
+my_dict.update({'key1': 'value1', 'key2': 'value2'})
+
+#3.Using the `dict()` constructor:
+my_dict = dict(key1='value1', key2='value2')
