@@ -1,0 +1,15 @@
+file_in = 'D:/THE GOLDEN BIRD.txt'
+a = open(file_in,'r',encoding='utf-8')
+
+word_dic={}
+for sentense in a:
+    split_sentense=sentense.split()
+    for word in split_sentense:
+        if word in word_dic:
+            word_dic[word] += 1
+        else:
+            word_dic[word] = 1
+
+a = sorted(word_dic.items(),key=lambda kv:(kv[1],kv[0]),reverse = True)        
+print(a)
+file_in.close()
