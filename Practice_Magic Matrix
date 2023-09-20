@@ -1,47 +1,50 @@
-'''
-A magic square is a square matrix (i.e., the number of rows is equal to the number of columns) 
-in which the sum of the values in each row, each column, and both main diagonals are the same.
-'''
-
 def is_magic_square(matrix):
+# To define what is a magic square
     num_rows = len(matrix)
     num_cols = len(matrix[0])
 
-    if num_rows != num_cols: # number of rows not equal to number of columns, return false
+# Condition1: row numbers equal to columns number, return False
+    if num_rows != num_cols: 
         return False
     
-    row_sum = sum(matrix[0])
+# Condition2: sum of each row not equal, return False   
+    row_sum = sum(matrix[0]) # Sum up the 1st row
     for i in range(num_rows):
-        if sum(matrix[i]) != row_sum:  # sum of each row not equal, return false
-            return False
-
+        if sum(matrix[i]) != row_sum: 
+            return False  
+        
+# Condition3: sum of each column not equal to 1st row sum, return False        
     for j in range(num_cols):
-        colum_sum = sum(matrix[i][j] for i in range(num_rows))   # 不能写成  if sum(matrix[i][j]) != row_sum, TypeError: 'int' object is not iterable
-        if colum_sum != row_sum:  # sum of each column not equal, return false
-            return False
+        colum_sum = sum(matrix[i][j] for i in range(num_rows))
+        if colum_sum != row_sum: 
+            return False  
 '''
-for j in range(num_cols):      #send method to calculate the sum of each column
+for j in range(num_cols):      #second method to calculate the sum of each column
   for i in range(num_rows):
     sum += matrix[i][j]
     if sum != row_sum:
      ....
-'''       
+'''   
+        
+# Condition4: sum of the 1st diagonal not equal to 1st row sum,return False     
     sum_1st_diagonal = 0
     for i in range(num_rows):
         fist_dia = sum(matrix[i][j] for j in range(num_rows) if i==j)
-        sum_1st_diagonal += fist_dia  # calculate sum of main diagonal 
-    if sum_1st_diagonal != row_sum:   # sum of main diagonal not equal to sum of row
-        return False                  # return false 
+        sum_1st_diagonal += fist_dia   # calculate sum of 1st diagonal 
+    if sum_1st_diagonal != row_sum: # sum of 1st diagonal not equal to row sum
+        return False       
     
+# Condition5: sum of the 2nd diagonal not equal to 1st row sum, return False    
     sum_2st_diagonal = 0
     for i in range(num_rows):
         second_dia = sum(matrix[i][j] for j in range(num_cols) 
-                         if j == num_cols-i-1)
-        sum_2st_diagonal += second_dia  # calculate sum of 2nd diagonal 
-    if sum_2st_diagonal != row_sum:     # sum of 2nd diagonal not equal to sum of row
-        return False                    # return false
+                         if j == num_cols-i-1) 
+        sum_2st_diagonal += second_dia # calculate sum of 2nd diagonal 
+    if sum_2st_diagonal != row_sum: 
+        return False   
 
-    return True                         # pass when it is a magic matrix
+# If all checks pass, return True.The matrix is a magic square.
+    return True    
 
 def input_matrix(): 
     while True:
@@ -49,21 +52,21 @@ def input_matrix():
             num_rows = int(input("Enter the number of rows: "))
             num_cols = int(input("Enter the number of columns: "))
         
+# Check row no.with column no.If not equal,it's not a square matrix.
             if num_rows != num_cols:
                 print(f"Number of rows and columns are not equal.")
                 print(f"Enter the number of rows and colums again")
-                continue  # loop the input while enter incorrectly
+                continue  # loop out if enter incorrectly
             else:
-                matrix = []           # creat a blank matrix
+                matrix = []           # Creat a blank matrix
                 print("Enter the matrix elements row by row:")
-#TODO Accept elements of the matrix and store them properly in the 'matrix'
                 for i in range(num_rows):
-                    row =[]           # creat a blank row
+                    row =[]           # Creat a blank row
                     for j in range(num_cols):
                         element = int(input(f"Enter the element at\
- position {i+1}{j+1}: "))
+ position {i+1}{j+1}: ")) # Input the element
                         row.append(element)  # embed each element into the row
-                    matrix.append(row)  # embed each row into the matrix
+                    matrix.append(row)  # embed the row into the matrix
             return matrix
         except ValueError:     # handle input valueerror and return None
             print("Invalid input. Please enter valid numeric values.")
@@ -71,16 +74,20 @@ def input_matrix():
         
 
 def main():
+    '''
+This function is to checks if a given 2D matrix is a magic square.
+A magic square is a square matrix (i.e., the number of rows is equal to the number of columns) 
+in which the sum of the values in each row, each column, and both main diagonals are the same.
+
+    '''
     print("Magic Square Validator")
-    matrix = input_matrix()       # call the input_matrix function
+    matrix = input_matrix() # Call the input_matrix function to enter the matrix
     
-    if matrix is not None: # if input is right, call the function is_magic_square
-        if is_magic_square(matrix):  
-            print("The entered matrix is a magic square!")
-        else:
+    if matrix is not None: # If there is input, call the function is_magic_square
+        if is_magic_square(matrix):  # if the input matrix is magic square
+            print("The entered matrix is a magic square!") # print confirmation
+        else: # Else, print it is not a magic square
             print("The entered matrix is not a magic square.")
 
 if __name__ == "__main__":
     main()
-
-
