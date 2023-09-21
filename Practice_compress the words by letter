@@ -1,0 +1,9 @@
+gather the element in the list by selecting the first letter
+lst=['ab','cd','aton','cirber','upon']
+dic_letter = {}
+for word in lst:
+  letter = word[0]
+  if letter not in dic_letter:
+    dic_letter[letter] = [word]
+  else:
+    dic_letter[letter].append(word)
