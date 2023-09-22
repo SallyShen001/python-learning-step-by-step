@@ -1,0 +1,5 @@
+#Examples
+#stutter("incredible") ➞ "in... in... incredible?"
+def stutter(word):
+  return '{0}... {0}... {1}?'.format(word[:2], word)
+  print (f"{word[0]}{word[1]}...{word[0]}{word[1]}...{word}?")
