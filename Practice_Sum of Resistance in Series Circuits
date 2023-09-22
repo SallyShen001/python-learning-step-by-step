@@ -1,0 +1,13 @@
+'''
+Create a function that takes an array of values resistance that are connected in series, and calculates the total resistance of the circuit in ohms. 
+The ohm is the standard unit of electrical resistance in the International System of Units ( SI ).
+series_resistance([1, 5, 6, 3]) ➞ "15 ohms"
+series_resistance([16, 3.5, 6]) ➞ "25.5 ohms"
+series_resistance([0.5, 0.5]) ➞ "1.0 ohm"
+Notes
+All inputs will be valid.
+Notice the singular ohm for values <= 1.
+'''
+def series_resistance(lst):
+	s = sum(lst)
+	return str(s)+' ohm' + ('s' if s>1 else '')
