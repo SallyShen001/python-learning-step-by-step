@@ -1,0 +1,9 @@
+def findout(self,lst):
+  return (i for in range(len(lst)) if lst[i] == self)
+def findout(self, lst)
+  i=0
+  for j in lst:
+    if self >j:
+      i +=1
+  return i
+      
