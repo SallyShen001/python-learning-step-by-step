@@ -57,3 +57,12 @@ Using `_` as the loop variable is a way to make the code more readable and to
 indicate to other developers that the loop variable is intentionally not used 
 in the loop body.
 '''
+
+def reverse_string(s):
+    if len(s) == 0:
+        return ""
+    else:
+        return reverse_string(s[1:]) + s[0] # using recursion method to reverse the string
+s = "Hello, World!"
+reversed_s = reverse_string(s)
+print(reversed_s)
