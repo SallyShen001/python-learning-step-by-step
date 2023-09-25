@@ -1,0 +1,45 @@
+from collections import abc
+isinstance([1,2,3], abc.Iterator) # False
+isinstance((1,2,3), abc.Iterator) # False
+isinstance({'name': 'lily', 'age': 18}, abc.Iterator) # False
+isinstance({1, 2, 3}, abc.Iterator) # False
+isinstance('abc', abc.Iterator) # False
+isinstance(123, abc.Iterator) # False
+
+# 生成器表达式，见下文
+isinstance((x*2 for x in range(5)), abc.Iterator)
+# True
+'''
+可以看到，常见的类型，它们不是迭代器类型，我们来看看如何让一个对象成为迭代器类型。要转为迭代器类型用使用 内置函数 iter()，要使用 内置函数 iter() 需要对此对象支持此函数。
+'''
+from collections.abc import Iterable
+
+c =isinstance('abc', Iterable) # str
+print(c)   # True
+d = isinstance([1,2,3], Iterable) # list
+print(d)   # True
+e = isinstance({}, Iterable) # dict
+print(e)   # True
+f = isinstance(123, Iterable) # 整数
+print(f)   # False
+
+lst = [1,2,3,4,5]
+dir(lst)
+'''
+...
+'__iter__',
+...
+'''
+a = hasattr(lst,'__iter__')
+'''
+The hasattr() function returns True if the specified object has the specified 
+attribute, otherwise False.
+Syntax:  hasattr(object, attribute)
+'''
+print(a)   #True
+
+g = hasattr(dir(lst), '__iter__')
+print(g)
+
+b = iter(lst)  #支持使用内置函数 iter() 将其转为 迭代器类型
+print(b)   #<list_iterator object at 0x0000027732A0CA60>
