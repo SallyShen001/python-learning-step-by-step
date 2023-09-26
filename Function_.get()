@@ -1,0 +1,18 @@
+my_dict = {'a': 1, 'b': 2}
+result = my_dict.get('c', 0)
+print(result)
+
+'''
+1. The dictionary `my_dict` is defined with key-value pairs. It has keys `'a'` and `'b'` with corresponding values `1` and `2`, respectively.
+
+2. The `get()` method is called on the dictionary `my_dict`. It takes two arguments: the key to be searched (`'c'`) and a default value (`0`). 
+
+3. The `get()` method checks if the key `'c'` exists in the dictionary. If it does, it returns the corresponding value. If the key is not found, it returns the default value (`0` in this case).
+
+4. In this example, since the key `'c'` does not exist in the dictionary `my_dict`, the `get()` method returns the default value `0`.
+
+5. The returned value from the `get()` method is assigned to the variable `result`.
+
+6. Finally, the value of `result` is printed, which outputs `0`.
+
+'''
