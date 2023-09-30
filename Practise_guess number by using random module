@@ -1,0 +1,79 @@
+Problem 
+You are tasked with creating a text-based number guessing game in Python. The game should allow the user to guess a randomly generated number within a specified range. The user should be provided with hints about whether their guess is too high or too low. Here are the specific requirements for the game:
+
+ Allow the user to choose from different difficulty levels (easy, medium, hard). Each difficulty level corresponds to a different range of numbers. (3 pts)
+Generate a random number within the specified range (according to the selected level). You can use Python's random module for this.
+
+Ask the user to guess the number. Accept the user's input as their guess.
+
+ Check if the user's guess is correct. If it is, display a congratulatory message and the number of attempts it took to guess correctly. Also check if the number of attempts is less than existing high score, if yes print another message to inform user that he has made the highest score. Update the highest score in that category. (4 pts)
+Then ask if the user wants to play again.
+ If the user's guess is incorrect, provide hints to the user about whether their guess is too high or too low. Allow the user to guess again. (2 pts)
+Track the number of attempts it takes for the user to guess correctly and display this information when they guess correctly.
+
+Implement a menu system that allows the user to start a new game or quit the program.
+
+ Implement exception handling to handle cases where the user enters invalid input (e.g., non-numeric input) and inform the user of the error. (1pt)
+
+
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Sep 30 15:44:54 2023
+
+@author: ThinkPad
+"""
+
+import random
+difficulty_levels = {"easy": (1, 10),"medium": (1, 50),"hard": (1, 100)}
+high_scores = {'easy': float('inf'), 'medium': float('inf'), 'hard': float('inf')}
+
+# Ask the user to choose a difficulty level, levels extracted from the dictionary_levels
+#Store user's choice in a variable called selected_level
+selected_level = input("Choose a difficulty level (easy, medium, hard): ")
+
+min_num, max_num = difficulty_levels.get(selected_level, difficulty_levels["medium"])
+#Populate min_num, max_num using the level selected, if the level selected is not in the dictionary, 
+#select 'medium' by default
+target = random.randint(min_num, max_num)
+print("Welcome to the Number Guessing Game!")
+print(f"guess number between {min_num} and {max_num}")
+
+def check_guess(selected_level, target):
+    if selected_level == target:
+        return "correct"
+    elif selected_level < target:
+        return "too low"
+    else:
+        return "too high"
+    
+def play_game():
+    attempts = 0
+    while True:
+        try:
+            guess = int(input("Enter your guess: "))
+            attempts += 1
+            result = check_guess(guess, target)
+            if result == "correct":
+                print("Congratulations! You guessed the number correctly in", attempts, "attempts.")
+                if attempts < high_scores[selected_level]:
+                    high_scores[selected_level] = attempts
+                    print("You have made the highest score in this category!")
+                break
+            elif result == "too low":
+                print("Too low. Guess again.")
+            else:
+                print("Too high. Guess again.")
+#handle valueError here and print a suitable error message. (Write except block)
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+def menu():
+    while True:
+        choice = input("Enter '1' to start a new game or '2' to quit: ")
+        if choice == "1":
+            play_game()
+        elif choice == "2":
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid input. Please enter '1' or '2'.")
+menu()
