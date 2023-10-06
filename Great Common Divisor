@@ -1,0 +1,15 @@
+def max_num (a,b):
+    if b == 0:
+        return a
+    else:
+        while not b:
+            a, b = b, a%b
+        return a%b
+print(max_num(2470,1760))
+
+def gcd(a,b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a%b)
+print(gcd(108,96))
