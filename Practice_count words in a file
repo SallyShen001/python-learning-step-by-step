@@ -1,0 +1,5 @@
+def countwords(input_file):
+    with open (input_file, 'r') as inputfile:
+        lines = inputfile.read()
+        s = lines.split(" ")
+    return(len(s))
