@@ -1,6 +1,6 @@
 def filesplitter(input_file, line_per_file):
-  with open(input_file,'r') as if:
-    num_lines = if.readlines()
+  with open(input_file,'r') as inputfile:
+    num_lines = inputfile.readlines()
   num_files = len(num_lines) // line_per_file
   for i in range(num_files):
     start = i * num_files
