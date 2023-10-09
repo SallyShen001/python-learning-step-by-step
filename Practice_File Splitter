@@ -1,0 +1,18 @@
+def filesplitter(input_file, line_per_file):
+  with open(input_file,'r') as if:
+    num_lines = if.readlines()
+  num_files = len(num_lines) // line_per_file
+  for i in range(num_files):
+    start = i * num_files
+    end = start + line_per_file
+    new_file = f'output_{i+1}.txt'
+    with open(new_file, 'w') as nf:
+      nf.writelines(num_lines[start:end])
+  remainding_line = len(num_files)%line_per_file
+  if remainding_line > 0 :
+    new_file = f'output_{num_files+1}.txt'
+    with open(new_file, 'w') as nf:
+      nf.writelines(num_lines[-remainding_line: ])
+
+    
+    
