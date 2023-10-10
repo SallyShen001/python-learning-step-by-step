@@ -41,3 +41,13 @@ with open("D:/总结/csv test/test.csv", encoding="utf-8") as tst:
 - `out`: This is the file object representing the CSV file where the data will be written. It could be a file opened in write mode using the `open()` function.
 - `dialect="excel"`: This is an optional argument that specifies the dialect of the CSV file. In this case, the "excel" dialect is used, which is a common dialect that is compatible with most spreadsheet applications.
 '''
+import csv
+#从字典写入CSV文件 by using dictionary
+dic = {"no":"7","age":"56","name":"BOB"}
+csvfile3 = open("D:/总结/csv test/test.csv", 'w',newline='')
+writer3 = csv.writer(csvfile3)
+for key in dic:
+    print(key,dic[key])
+    writer3.writerow([key,dic[key]])
+csvfile3.close()
+
