@@ -1,0 +1,43 @@
+import csv
+with open("test.csv", "r", encoding = "utf-8") as f:
+    reader = csv.reader(f)
+    rows = [row for row in reader] #读取csv的全部内容，以行为单位
+		column = [row[1] for row in reader] ##读取第二列的内容,以列为单位
+
+import csv
+with open('eggs.csv', newline='',encoding = 'utf-8') as csvfile:
+# The `newline=''` argument is used to handle different line endings in the CSV file.
+    spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+# The `delimiter=' '` 分隔符 argument specifies that the delimiter between fields in the CSV file is a space character
+# The `quotechar='|'` 引用字符argument specifies that the quote character used to enclose fields is the pipe character (`|`).
+    for row in spamreader:
+        print(', '.join(row))
+
+import csv
+with open("D:/总结/csv test/test.csv", "r", encoding = "utf-8") as f:
+    reader = csv.DictReader(f)
+    column = [row for row in reader]
+#返回的每一个单元格都放在一个字典的值内，而这个字典的键则是这个单元格的标题（即列头）
+print(column)
+
+import csv
+#读age列的内容
+with open("D:/总结/csv test/test.csv", "r", encoding = "utf-8") as f:
+    reader = csv.DictReader(f)
+    column = [row['age'] for row in reader]
+#如果想用DictReader读取csv的某一列，就可以用列的标题查询：
+print(column)
+
+import csv
+row = ['6','23','hehe]
+out = open("D:/总结/csv test/test.csv", "a", newline="") # 'a' means append
+csv_writer = csv.writer(out, dialect = "excel")
+csv_writer.writerow(row)
+out.close()
+with open("D:/总结/csv test/test.csv", encoding="utf-8") as tst:
+    ts = tst.read()
+    print(ts)
+'''
+- `out`: This is the file object representing the CSV file where the data will be written. It could be a file opened in write mode using the `open()` function.
+- `dialect="excel"`: This is an optional argument that specifies the dialect of the CSV file. In this case, the "excel" dialect is used, which is a common dialect that is compatible with most spreadsheet applications.
+'''
