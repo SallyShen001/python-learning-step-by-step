@@ -1,0 +1,21 @@
+import matplotlib.pyplot as plt
+#plt.plot(range(10))
+
+x = [1,2,3,4,5]
+y = [8,7,6,5,4]
+# This will modify/change the width and height of the plot 
+# from default 6.4(width) x 4.8(height) to 40(width) x 20 (height)
+
+plt.figure(figsize = (40,20))
+
+plt.plot(x,y)
+plt.show()
+
+plt.figure().set_figwidth(3)
+plt.figure().set_figheight(2)
+plt.plot(x,y)
+plt.show()
+
+plt.rcParams['figure.figsize']= [4, 4]
+plt.plot(x,y)
+plt.show()
