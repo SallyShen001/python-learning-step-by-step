@@ -1,0 +1,12 @@
+from numpy.random import rand
+import numpy as np
+np.random.seed(seed=0)
+print(f"不指定randn维度，则只返回一个正态分布随机数：\n{np.random.randn()}")
+print(f"指定randn的维度为（(2,3),则只返回一个(2,3)正态分布随即组:\n{np.random.randn(2,3)}")
+print(f"不指定rand维度，则只返回一个随机样本：\n{np.random.rand()}")
+print(f"指定rand维度，则只返回一个随机样本：\n{np.random.rand(2,3)}")
+
+np.random.seed(5)
+a = rand(5)
+print("第一次列表: ",a)
+print("第二次数值: ",a)
