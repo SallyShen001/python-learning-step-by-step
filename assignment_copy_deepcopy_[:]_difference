@@ -1,3 +1,52 @@
+#1st trial : [:]
+def copy_fun1():
+    a = ["app"]
+    b = a[:]
+    print(f"1st trial: using[:]")
+    print(f"original_list and id: {a},{id(a)}")
+    print(f"copy_list and id: {b}, {id(b)}")
+    print(a is b)
+    print("\n")
+
+#2nd trial : copy.copy()
+import copy
+def copy_fun2():
+    a = ["app"]
+    c = copy.copy(a)
+    print(f"2nd trial: using copy.copy()")
+    print(f"original_list and id: {a},{id(a)}")
+    print(f"copy_list2 and id: {c}, {id(c)}")
+    print(a is c)
+    print("\n")
+
+#3rd trial: copy.deepcopy()
+def copy_fun3():
+    a = ["app"]
+    e = copy.deepcopy(a)
+    print(f"3rd trial: using copy.deepcopy()")
+    print(f"original_list and id: {a},{id(a)}")
+    print(f"copy_list4 and id: {e}, {id(e)}")
+    print(a is e)
+    print("\n")
+
+#4th trial : =
+def copy_fun4():
+    a = ["app"]
+    d = a
+    print(f"4th trial: using =")
+    print(f"original_list and id: {a},{id(a)}")
+    print(f"copy_list3 and id: {d}, {id(d)}")
+    print(a is d)
+    print("\n")
+
+copy_fun1()
+copy_fun2()
+copy_fun3()
+copy_fun4()
+
+
+
+
 import copy
 a = [1, 2, 3, 4, ['a', 'b']] #原始对象
  
