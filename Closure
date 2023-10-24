@@ -1,0 +1,18 @@
+def startAt(x):
+    def incrementBy(y):
+        return x+y
+    return incrementBy
+
+a = startAt(1)
+print('function',a) 
+# Output：function <function startAt.<locals>.incrementBy at 0x0000025352CAA2A0>
+print('result:', a(1))  #result: 2
+print('a.func_name:', a.__name__) #a.func_name: incrementBy
+
+'''
+1. We have the function `a` which was returned by the `startAt(1)` call. This means that `a` is a function that has `x` set to 1.
+2. When we call `a(1)`, we are invoking the function `a` and passing the value 1 as the argument to the `incrementBy` function.
+3. Inside the `incrementBy` function, the parameter `y` will take the value of the argument we passed, which is 1.
+4. The `incrementBy` function then returns the sum of `x` (which is 1) and `y` (which is 1), resulting in a return value of 2.
+5. The second `print` statement then prints the result, which is 2.
+'''
