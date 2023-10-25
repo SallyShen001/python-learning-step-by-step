@@ -1,0 +1,33 @@
+# Practice 1
+def outerFunc():
+    x = 0
+    def innerFunc():
+        x = 1
+        print('inner x:', x)
+    print('outer x before call inner:', x)  #  outer x before call inner: 0
+    innerFunc()  # inner x: 1
+    print('outer x after call inner:',x)  # outer x after call inner: 0
+outerFunc() 
+
+# Practice 2
+flist = []
+for i in range(3):
+    def func(x):
+        return x*i
+    flist.append(func)
+    
+for f in flist:
+    print(f(2)) # Return 4,4,4
+
+# improvement 2
+
+flist = []
+for i in range(3):
+	def makefunc(i):
+		def func(x):
+			return x*i
+		return func
+	flist.append(makefunc(i))
+
+for f in flist:
+	print(f(2)) # Return 0,2,4
